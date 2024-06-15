@@ -4,7 +4,7 @@
   config,
   ...
 }: let
-  theme = "oxocarbon-dark";
+  theme = "rose-pine-moon";
 in {
   imports = [
     # Include the results of the hardware scan.
