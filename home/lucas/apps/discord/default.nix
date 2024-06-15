@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    webcord 
+    webcord
     gnome.gnome-keyring
     # (discord.override {
     #   withOpenASAR = false;

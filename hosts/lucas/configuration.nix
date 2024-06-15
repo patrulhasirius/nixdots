@@ -130,19 +130,19 @@ in {
       plugins = with pkgs.xfce; [thunar-archive-plugin];
     };
     corectrl = {
-    enable = true;
-    gpuOverclock.enable = true;
-  };
+      enable = true;
+      gpuOverclock.enable = true;
+    };
     steam = {
-    # enable steam as usual
-    enable = true;
-    # add extra compatibility tools to your STEAM_EXTRA_COMPAT_TOOLS_PATHS using the newly added `extraCompatPackages` option
-    extraCompatPackages = [
-      # add the packages that you would like to have in Steam's extra compatibility packages list
-      pkgs.proton-ge-bin
-      # etc.
-    ];
-  };
+      # enable steam as usual
+      enable = true;
+      # add extra compatibility tools to your STEAM_EXTRA_COMPAT_TOOLS_PATHS using the newly added `extraCompatPackages` option
+      extraCompatPackages = [
+        # add the packages that you would like to have in Steam's extra compatibility packages list
+        pkgs.proton-ge-bin
+        # etc.
+      ];
+    };
     gamemode = {
       enable = true;
       settings = {

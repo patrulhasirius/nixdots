@@ -4,7 +4,7 @@ _: {
     margin-bottom = 2;
     margin-right = 8;
     margin-left = 8;
-    modules-left = ["custom/wmname" "custom/media"  "hyprland/window"];
+    modules-left = ["custom/wmname" "custom/media" "hyprland/window"];
     modules-center = ["hyprland/workspaces"];
     modules-right = [
       "battery"

@@ -71,6 +71,7 @@
               inputs
               hyprland
               #disko
+              
               ;
           };
           modules = [

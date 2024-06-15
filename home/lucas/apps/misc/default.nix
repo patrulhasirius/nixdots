@@ -13,7 +13,6 @@
     lutris-unwrapped
     heroic
 
-
     # Other stuff
     gh
     #ollama
@@ -28,7 +27,7 @@
     nitrogen # Wallpaper utility for X11
     nwg-look # Change GTK theme
 
-     # compatibility
+    # compatibility
     google-chrome
     breeze-icons # for QT
 
@@ -49,7 +48,7 @@
     vlc
     vscode
 
-     #bluetooth
+    #bluetooth
     blueman
 
     # System Utils
