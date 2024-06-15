@@ -274,6 +274,11 @@ in {
 
   sound.enable = true;
   services = {
+    blueman.enable = true;
+    tumbler.enable = true;
+    gvfs.enable = true;
+    onedrive.enable = true;
+    locate.enable = true;
     pipewire = {
       enable = true;
       alsa = {
