@@ -74,4 +74,15 @@
   home.sessionPath = [
     "$HOME/.local/bin"
   ];
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "inode/directory" = ["thunar.desktop"];
+      "image/jpeg" = ["org.kde.gwenview.desktop"];
+      "image/jpg" = ["org.kde.gwenview.desktop"];
+      "image/png" = ["org.kde.gwenview.desktop"];
+      "text/plain" = ["org.xfce.mousepad.desktop"];
+    };
+  };
 }
