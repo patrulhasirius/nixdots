@@ -82,7 +82,7 @@ in {
     dhcpcd.wait = "background";
     # avoid checking if IP is already taken to boot a few seconds faster
     dhcpcd.extraConfig = "noarp";
-    hostName = "redyf"; # Define your hostname.
+    hostName = "lucas"; # Define your hostname.
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     # Configure network proxy if necessary
     # proxy.default = "http://user:password@proxy:port/";
@@ -91,9 +91,9 @@ in {
 
   users = {
     users = {
-      redyf = {
+      lucas = {
         isNormalUser = true;
-        description = "redyf";
+        description = "lucas";
         initialPassword = "123456";
         shell = pkgs.zsh;
         extraGroups = ["networkmanager" "wheel" "input" "docker" "kvm" "libvirtd"];
@@ -110,7 +110,7 @@ in {
       enable = true;
       extraRules = [
         {
-          users = ["redyf"];
+          users = ["lucas"];
           keepEnv = true;
           persist = true;
         }
@@ -129,7 +129,7 @@ in {
       enable = true;
       clean.enable = true;
       clean.extraArgs = "--keep-since 4d --keep 3";
-      flake = "/home/redyf/nixdots";
+      flake = "/home/lucas/nixdots";
     };
   };
 
@@ -301,7 +301,7 @@ in {
     autorandr = {
       enable = true;
       profiles = {
-        redyf = {
+        lucas = {
           config = {
             DP-0 = {
               enable = true;
@@ -321,5 +321,5 @@ in {
     docker-compose
   ];
 
-  system.stateVersion = "22.11"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 }

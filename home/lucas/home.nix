@@ -4,9 +4,9 @@
   ...
 }: {
   home = {
-    username = "redyf";
-    homeDirectory = "/home/redyf";
-    stateVersion = "22.11";
+    username = "lucas";
+    homeDirectory = "/home/lucas";
+    stateVersion = "24.05";
   };
 
   # Let Home Manager install and manage itself.
