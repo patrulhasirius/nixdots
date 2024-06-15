@@ -47,14 +47,14 @@ in {
         # Export PATHs for applications
         export PATH=$PATH:~/.local/bin/
         export PATH=/tmp/lazy-lvim/bin:$PATH
-        export PATH="$PATH:/home/redyf/.emacs.d/bin"
-        export PATH="$PATH:/home/redyf/.config/emacs/bin"
+        export PATH="$PATH:/home/lucas/.emacs.d/bin"
+        export PATH="$PATH:/home/lucas/.config/emacs/bin"
         export PATH="$PATH:/run/current-system/sw/bin/jdtls"
         export PATH="$PATH:/run/current-system/sw/bin/jdt-language-server"
-        export PATH="$PATH:/etc/profiles/per-user/redyf/bin/flutter"
-        export PATH="$PATH:/home/redyf/Android/Sdk"
-        export PATH="$PATH:/home/redyf/Android/Sdk/platform-tools/"
-        export PATH="$PATH:/home/redyf/Android/Sdk/cmdline-tools/latest/bin"
+        export PATH="$PATH:/etc/profiles/per-user/lucas/bin/flutter"
+        export PATH="$PATH:/home/lucas/Android/Sdk"
+        export PATH="$PATH:/home/lucas/Android/Sdk/platform-tools/"
+        export PATH="$PATH:/home/lucas/Android/Sdk/cmdline-tools/latest/bin"
         export PATH="$PATH:$FORGIT_INSTALL_DIR/bin"
         export WINIT_UNIX_BACKEND=x11 neovide
 
