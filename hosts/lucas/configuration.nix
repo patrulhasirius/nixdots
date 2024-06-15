@@ -353,6 +353,13 @@ in {
     };
   };
 
+  #my raid
+  environment.etc."crypttab".text = ''
+    crypt-btrfs-5e8e UUID=5e8e19cc-3cf6-4eba-8be8-b09ca9c8d494 /root/btrfs-5e8e.keyfile luks
+    crypt-btrfs-8b0d UUID=8b0dc62d-4ee6-4713-815a-137c1dbe0729 /root/btrfs-8b0d.keyfile luks
+    crypt-btrfs-5b0f UUID=5b0f3855-837b-4653-977d-5254b4d6ce0c /root/btrfs-5b0f.keyfile luks
+  '';
+
   environment.systemPackages = with pkgs; [
     git
     docker-compose
