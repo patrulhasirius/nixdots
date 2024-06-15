@@ -4,8 +4,8 @@ _: {
     margin-bottom = 2;
     margin-right = 8;
     margin-left = 8;
-    modules-left = ["custom/wmname" "custom/media" "hyprland/workspaces" "hyprland/window"];
-    modules-center = [];
+    modules-left = ["custom/wmname" "custom/media"  "hyprland/window"];
+    modules-center = ["hyprland/workspaces"];
     modules-right = [
       "battery"
       "cpu"
@@ -21,31 +21,31 @@ _: {
     ];
 
     "hyprland/workspaces" = {
-      "persistent-workspaces" = {
-        "1" = ["DP-3"];
-        "2" = ["DP-3"];
-        "3" = ["DP-3"];
-        "4" = ["DP-3"];
-      };
-      active-only = "false";
+      #"persistent-workspaces" = {
+      #  "1" = ["DP-3"];
+      #  "2" = ["DP-3"];
+      #  "3" = ["DP-3"];
+      #  "4" = ["DP-3"];
+      #};
+      #active-only = "false";
       on-scroll-up = "hyprctl dispatch workspace e+1";
       on-scroll-down = "hyprctl dispatch workspace e-1";
       disable-scroll = "false";
       all-outputs = "true";
       format = "{icon}";
       on-click = "activate";
-      format-icons = {
-        "1" = " ";
-        "2" = "";
-        "3" = " ";
-        "4" = " ";
-        "5" = " ";
-        "6" = " ";
-        "7" = " ";
-        "8" = " ";
-        "9" = " ";
-        "10" = "󰊴 ";
-      };
+      #format-icons = {
+      #  "1" = " ";
+      #  "2" = "";
+      #  "3" = " ";
+      #  "4" = " ";
+      #  "5" = " ";
+      #  "6" = " ";
+      #  "7" = " ";
+      #  "8" = " ";
+      #  "9" = " ";
+      #  "10" = "󰊴 ";
+      #};
     };
 
     "custom/media" = {
@@ -79,6 +79,7 @@ _: {
     };
 
     "cpu" = {
+      interval = 1;
       format = " {usage}%";
       tooltip = "false";
     };

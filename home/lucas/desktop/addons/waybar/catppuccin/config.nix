@@ -58,6 +58,7 @@ _: {
     };
 
     "cpu" = {
+      interval = 1;
       format = " {usage}%";
       tooltip = "false";
     };
