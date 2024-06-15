@@ -1,5 +1,5 @@
 {
-  description = "Redyf's Flake";
+  description = "Lucas's Flake";
 
   inputs = {
     # Core
@@ -12,8 +12,8 @@
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     waybar-hyprland.url = "github:hyprwm/hyprland";
     nur.url = "github:nix-community/NUR";
-    Neve.url = "github:redyf/Neve";
-    disko.url = "github:nix-community/disko";
+    #Neve.url = "github:patrulhasirius/Neve";
+    #disko.url = "github:nix-community/disko";
     stylix.url = "github:danth/stylix";
     ags.url = "github:Aylur/ags";
     matugen.url = "github:InioX/matugen?ref=v2.2.0";
@@ -49,7 +49,7 @@
     nixpkgs,
     hyprland,
     home-manager,
-    disko,
+    #disko,
     stylix,
     ...
   } @ inputs: let
@@ -62,7 +62,7 @@
     nixpkgsFor = forAllSystems (system: import nixpkgs {inherit system;});
   in {
     nixosConfigurations = {
-      redyf =
+      lucas =
         nixpkgs.lib.nixosSystem
         {
           system = "x86_64-linux";
@@ -70,24 +70,25 @@
             inherit
               inputs
               hyprland
-              disko
+              #disko
+              
               ;
           };
           modules = [
-            ./hosts/redyf/configuration.nix
+            ./hosts/lucas/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager = {
                 useUserPackages = true;
                 useGlobalPkgs = false;
-                extraSpecialArgs = {inherit inputs disko;};
-                users.redyf = ./home/redyf/home.nix;
+                extraSpecialArgs = {inherit inputs;};
+                users.lucas = ./home/lucas/home.nix;
                 backupFileExtension = "backup";
               };
             }
             stylix.nixosModules.stylix
             hyprland.nixosModules.default
-            disko.nixosModules.disko
+            #disko.nixosModules.disko
           ];
         };
       # selene = nixpkgs.lib.nixosSystem {
