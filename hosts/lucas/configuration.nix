@@ -363,6 +363,7 @@ in {
   environment.systemPackages = with pkgs; [
     git
     docker-compose
+    xorg.xhost
   ];
 
   system.stateVersion = "24.05"; # Did you read the comment?
