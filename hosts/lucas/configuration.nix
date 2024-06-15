@@ -284,7 +284,7 @@ in {
       };
       windowManager = {
         awesome = {
-          enable = true;
+          enable = false;
           luaModules = with pkgs.luaPackages; [
             luarocks
           ];

@@ -3,6 +3,7 @@ _: {
     ./addons
     ./gtk
     ./hyprland
-    ./awesomewm.nix
+    #./awesomewm.nix
+    ./swaylock
   ];
 }
