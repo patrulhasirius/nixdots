@@ -312,7 +312,7 @@ in {
         gdm.enable = true;
         sessionCommands = ''
           xset r rate 150 25
-          xrandr --output DP-0 --mode 1920x1080 --rate 165 --primary
+          xrandr --output DP-1 --mode 2560x1440 --rate 165 --primary
           nitrogen --restore
         '';
       };
