@@ -58,7 +58,7 @@ in {
     '')
 
     (writeShellScriptBin "importGsettings" ''
-      config="/home/redyf/.config/gtk-3.0/settings.ini"
+      config="/home/lucas/.config/gtk-3.0/settings.ini"
       if [ ! -f "$config" ]; then exit 1; fi
       gtk_theme="$(grep 'gtk-theme-name' "$config" | sed 's/.*\s*=\s*//')"
       icon_theme="$(grep 'gtk-icon-theme-name' "$config" | sed 's/.*\s*=\s*//')"
@@ -79,9 +79,8 @@ in {
     settings = {
       "$mainMod" = "SUPER";
       monitor = [
-        "DP-3,1920x1080@165,0x0,1"
-        "Unknown-1,disable"
-        # ",highrr,auto,auto"
+        "DP-1, 2560x1440@165, 0x0, 1"
+        "DP-3, 1920x1080@165, -1920x0, 1"
       ];
       env = [
         "XCURSOR_SIZE,32"
@@ -102,8 +101,8 @@ in {
         kb_rules = "";
 
         follow_mouse = 1;
-        repeat_delay = 140;
-        repeat_rate = 30;
+        repeat_delay = 300;
+        repeat_rate = 25;
         numlock_by_default = 1;
         accel_profile = "flat";
         sensitivity = 0;
@@ -169,7 +168,8 @@ in {
 
       misc = {
         vfr = true; # misc:no_vfr -> misc:vfr. bool, heavily recommended to leave at default on. Saves on CPU usage.
-        vrr = false; # misc:vrr -> Adaptive sync of your monitor. 0 (off), 1 (on), 2 (fullscreen only). Default 0 to avoid white flashes on select hardware.
+        vrr = true; # misc:vrr -> Adaptive sync of your monitor. 0 (off), 1 (on), 2 (fullscreen only). Default 0 to avoid white flashes on select hardware.
+        mouse_move_enables_dpms = true;
       };
 
       dwindle = {
@@ -187,7 +187,7 @@ in {
         mfact = 0.5;
         orientation = "right";
         special_scale_factor = 0.8;
-        new_is_master = true;
+        #new_is_master = true;
         no_gaps_when_only = false;
       };
 
@@ -203,10 +203,15 @@ in {
         "autostart"
         "easyeffects --gapplication-service" # Starts easyeffects in the background
         "importGsettings"
+        "steam -silent"
+        "xhost +SI:localuser:root"
+        "[workspace 1 silent] firefox"
+        "[workspace 2 silent] alacritty"
+        "[workspace 3 silent] thunar"
       ];
 
       bind = [
-        "SUPER,Q,killactive,"
+        "CTRL,Q,killactive,"
         "SUPER,M,exit,"
         "SUPER,S,togglefloating,"
         "SUPER,g,togglegroup"
@@ -270,7 +275,9 @@ in {
         "SUPER $mainMod SHIFT, 7, movetoworkspacesilent, 7"
         "SUPER $mainMod SHIFT, 8, movetoworkspacesilent, 8"
 
-        "SUPER,RETURN,exec,kitty"
+        "SUPER,T,exec,kitty"
+        "SUPER,D,exec,thunar"
+        "SUPER,F,exec,firefox"
         "SUPER,n,exec,neovide"
         "SUPER,e,exec,emacsclient -c -a 'emacs'"
         ",Print,exec,screenshot"
@@ -280,7 +287,25 @@ in {
         "SUPER,z,exec,waybar"
         "SUPER,space,exec,bemenu-run"
         # "SUPER,space,exec, tofi-drun --drun-launch=true"
-        # "SUPER,space,exec,wofi --show drun -I -s ~/.config/wofi/style.css DP-3"
+        "CTRL,space,exec,wofi --show drun -I -s ~/.config/wofi/style.css DP-3"
+
+        #Move monitor
+        "ALT SHIFT, 1, movecurrentworkspacetomonitor, DP-3"
+        "ALT SHIFT, 2, movecurrentworkspacetomonitor, DP-1"
+
+        #mouse change workspace
+        "SUPER, mouse_down, workspace, e-1"
+        "SUPER, mouse_up, workspace, e+1"
+
+        #lock
+        "SUPER,L,exec,swaylock -f -S --grace 2 && sleep 2 && hyprctl dispatch dpms off"
+
+        #playerctl
+        ",KP_Enter, exec, playerctl play-pause"
+        ",KP_Add, exec, playerctl next"
+
+        "ALT, return, fullscreen, 1"
+        "ALT, Tab, movefocus, d"
       ];
 
       bindm = [
@@ -330,6 +355,14 @@ in {
         "opacity 1.0 1.0,class:^(wofi)$"
       ];
     };
+
+    #workspace = [
+    #    "1, monitor:DP-1"
+    #    "2, monitor:DP-1"
+    #    "3, monitor:DP-1"
+    #    "4, monitor:DP-1"
+    #    "5, monitor:DP-1"
+    #  ];
 
     # Submaps
     # extraConfig = [
