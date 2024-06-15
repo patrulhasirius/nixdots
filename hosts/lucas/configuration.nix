@@ -14,8 +14,8 @@ in {
   boot = {
     kernelModules = ["v4l2loopback"]; # Autostart kernel modules on boot
     extraModulePackages = with config.boot.kernelPackages; [v4l2loopback]; # loopback module to make OBS virtual camera work
-    kernelParams = ["nvidia.NVreg_PreserveVideoMemoryAllocations=1"];
-    supportedFilesystems = ["ntfs"];
+    kernelParams = [];
+    supportedFilesystems = ["ntfs" "hid_xpadneo"];
     loader = {
       systemd-boot = {
         enable = false;
@@ -46,29 +46,19 @@ in {
   };
 
   hardware = {
-    nvidia = {
-      open = true;
-      nvidiaSettings = true;
-      powerManagement.enable = true;
-      modesetting.enable = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-    };
+    bluetooth.enable = true;
+    xpadneo.enable = true;
     opengl = {
       enable = true;
       driSupport32Bit = true;
-      extraPackages = with pkgs; [nvidia-vaapi-driver];
+      extraPackages = with pkgs; [];
     };
   };
 
   environment = {
     variables = {
       EDITOR = "nvim";
-      LIBVA_DRIVER_NAME = "nvidia";
       XDG_SESSION_TYPE = "wayland";
-      GBM_BACKEND = "nvidia-drm";
-      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-      __GL_GSYNC_ALLOWED = "1";
-      __GL_VRR_ALLOWED = "0"; # Controls if Adaptive Sync should be used. Recommended to set as “0” to avoid having problems on some games.
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       CUDA_CACHE_PATH = "$XDG_CACHE_HOME/nv";
@@ -76,10 +66,10 @@ in {
     };
     sessionVariables = {
       NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
-      WLR_NO_HARDWARE_CURSORS = "1"; # Fix cursor rendering issue on wlr nvidia.
-      DEFAULT_BROWSER = "${pkgs.brave}/bin/brave"; # Set default browser
+      #WLR_NO_HARDWARE_CURSORS = "1"; # Fix cursor rendering issue on wlr nvidia.
+      DEFAULT_BROWSER = "${pkgs.firefox}/bin/firefox"; # Set default browser
     };
-    shellAliases = {nvidia-settings = "nvidia-settings --config='$XDG_CONFIG_HOME'/nvidia/settings";};
+    shellAliases = {};
   };
 
   # Configure console keymap
@@ -304,7 +294,7 @@ in {
         variant = "";
         layout = "br";
       };
-      videoDrivers = ["nvidia"];
+      videoDrivers = [];
     };
     logmein-hamachi.enable = false;
     flatpak.enable = false;
