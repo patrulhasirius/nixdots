@@ -103,6 +103,12 @@ in {
 
   # Enable and configure `doas`.
   security = {
+    polkit.enable = true;
+    pam.services.swaylock = {
+      text = ''
+        auth include login
+      '';
+    };
     sudo = {
       enable = true;
     };
