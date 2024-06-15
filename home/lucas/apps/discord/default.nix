@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    vesktop
+    webcord 
+    gnome.gnome-keyring
     # (discord.override {
     #   withOpenASAR = false;
     #   withVencord = true;
