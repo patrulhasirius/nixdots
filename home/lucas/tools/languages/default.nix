@@ -1,7 +1,7 @@
 _: {
   imports = [
-    ./c
-    ./go
+    #./c
+    #./go
     ./rust
     ./python
     ./javascript
