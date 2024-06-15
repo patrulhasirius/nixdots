@@ -10,28 +10,47 @@
     # minecraft
     # grapejuice
     # libpulseaudio
+    lutris-unwrapped
+    heroic
 
-    # Notetaking
-    obsidian
 
     # Other stuff
     gh
-    ollama
+    #ollama
     playerctl
     # spotify
     # brave
+    yazi
 
     # Rice
-    bemenu
+    #bemenu
     # cmatrix
     nitrogen # Wallpaper utility for X11
     nwg-look # Change GTK theme
+
+     # compatibility
+    google-chrome
+    breeze-icons # for QT
+
+    # system cleanup
+    czkawka
+    qdirstat
+
+    # communication
+    signal-desktop
+
+    # passwords
+    keepassxc
 
     # Screenshot + extra utils
     grim # Screenshot tool for hyprland
     slurp # Works with grim to screenshot on wayland
     wl-clipboard # Enables copy/paste on wayland
     vlc
+    vscode
+
+     #bluetooth
+    blueman
 
     # System Utils
     mpv
@@ -42,5 +61,10 @@
     appimage-run # Run appimage files in the terminal
     polkit_gnome
     cinnamon.nemo
+    xfce.mousepad
+    nvtopPackages.amd
+
+    # research
+    zotero_7
   ];
 }
