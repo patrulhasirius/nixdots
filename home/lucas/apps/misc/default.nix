@@ -10,7 +10,6 @@
     # minecraft
     # grapejuice
     # libpulseaudio
-    lutris-unwrapped
     heroic
 
     # Other stuff
@@ -62,8 +61,18 @@
     cinnamon.nemo
     xfce.mousepad
     nvtopPackages.amd
+    dolphin
 
     # research
     zotero_7
+    libreoffice-fresh
+
+
+    protonup-qt
+    htop
+    bottles
+    wowup-cf
+    piper
+    wineWowPackages.full
   ];
 }
