@@ -77,7 +77,7 @@ in {
 
   networking = {
     networkmanager.enable = true;
-    enableIPv6 = false;
+    #enableIPv6 = false;
     # no need to wait interfaces to have an IP to continue booting
     dhcpcd.wait = "background";
     # avoid checking if IP is already taken to boot a few seconds faster
@@ -109,6 +109,7 @@ in {
         auth include login
       '';
     };
+    pam.services.greetd.enableGnomeKeyring = true;
     sudo = {
       enable = true;
     };
@@ -248,8 +249,8 @@ in {
       warn-dirty = false;
       log-lines = 50;
       sandbox = "relaxed";
-      substituters = ["https://hyprland.cachix.org"];
-      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+      substituters = ["https://hyprland.cachix.org" "https://tweag-jupyter.cachix.org"];
+      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" "tweag-jupyter.cachix.org-1:UtNH4Zs6hVUFpFBTLaA4ejYavPo5EFFqgd7G7FxGW9g="];
     };
     gc = {
       automatic = false;
@@ -260,6 +261,19 @@ in {
 
   # Change systemd stop job timeout in NixOS configuration (Default = 90s)
   systemd = {
+    user.services.polkit-gnome-authentication-agent-1 = {
+    description = "polkit-gnome-authentication-agent-1";
+    wantedBy = [ "graphical-session.target" ];
+    wants = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+    serviceConfig = {
+        Type = "simple";
+        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
+  };
     services.NetworkManager-wait-online.enable = false;
     extraConfig = ''
       DefaultTimeoutStopSec=10s
@@ -274,6 +288,8 @@ in {
 
   sound.enable = true;
   services = {
+    ratbagd.enable = true;
+    gnome.gnome-keyring.enable = true;
     blueman.enable = true;
     tumbler.enable = true;
     gvfs.enable = true;
@@ -334,7 +350,7 @@ in {
       videoDrivers = [];
     };
     logmein-hamachi.enable = false;
-    flatpak.enable = false;
+    flatpak.enable = true;
     autorandr = {
       enable = true;
       profiles = {
