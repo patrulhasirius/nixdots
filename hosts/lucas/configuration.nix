@@ -77,7 +77,7 @@ in {
 
   networking = {
     networkmanager.enable = true;
-    #enableIPv6 = false;
+    enableIPv6 = true;
     # no need to wait interfaces to have an IP to continue booting
     dhcpcd.wait = "background";
     # avoid checking if IP is already taken to boot a few seconds faster
