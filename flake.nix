@@ -12,7 +12,7 @@
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     waybar-hyprland.url = "github:hyprwm/hyprland";
     nur.url = "github:nix-community/NUR";
-    #Neve.url = "github:patrulhasirius/Neve";
+    Neve.url = "github:patrulhasirius/Neve";
     #disko.url = "github:nix-community/disko";
     stylix.url = "github:danth/stylix";
     ags.url = "github:Aylur/ags";

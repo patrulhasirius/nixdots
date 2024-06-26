@@ -5,8 +5,8 @@ _: {
     ./fd
     ./fzf
     ./jq
-    ./neovim
-    # ./neve
+    #./neovim
+    ./neve
     ./ripgrep
     ./rm-improved
     ./starship

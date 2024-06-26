@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  Neve,
   ...
 }: {
   home.packages = with pkgs; [
