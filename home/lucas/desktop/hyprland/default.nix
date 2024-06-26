@@ -206,8 +206,9 @@ in {
         "steam -silent"
         "xhost +SI:localuser:root"
         "[workspace 1 silent] firefox"
-        "[workspace 2 silent] alacritty"
+        "[workspace 2 silent] kitty"
         "[workspace 3 silent] thunar"
+        "moveworkspacetomonitor 2 DP-1"
       ];
 
       bind = [
@@ -356,13 +357,13 @@ in {
       ];
     };
 
-    #workspace = [
-    #    "1, monitor:DP-1"
-    #    "2, monitor:DP-1"
-    #    "3, monitor:DP-1"
-    #    "4, monitor:DP-1"
-    #    "5, monitor:DP-1"
-    #  ];
+  #workspace = [
+  #  "1, monitor:DP-1"
+  #  "2, monitor:DP-1"
+  #  "3, monitor:DP-1"
+  #  "4, monitor:DP-1"
+  #  "5, monitor:DP-1"
+  #];
 
     # Submaps
     # extraConfig = [
