@@ -67,7 +67,6 @@
     zotero_7
     libreoffice-fresh
 
-
     protonup-qt
     htop
     bottles
