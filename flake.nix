@@ -55,11 +55,11 @@
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       # FIXME replace with your hostname
-      nixos = nixpkgs.lib.nixosSystem {
+      lucas-note = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main nixos configuration file <
-          ./nixos/configuration.nix
+          ./hosts/lucas-note/configuration.nix
           nixos-hardware.nixosModules.lenovo-thinkpad-t480
         ];
       };

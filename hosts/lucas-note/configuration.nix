@@ -19,7 +19,7 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "lucas-note"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -30,7 +30,7 @@
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
       # Import your home-manager configuration
-      lucas = import ../home-manager/home.nix;
+      lucas = import ../../home-manager/home.nix;
     };
   };
 
@@ -61,7 +61,10 @@
 
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
+  services.displayManager = {
+    sddm.enable = true;
+    defaultSession = "cosmic";
+  };
   services.desktopManager.plasma6.enable = true;
 
   services.desktopManager.cosmic.enable = true;
@@ -82,6 +85,7 @@
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
+  security.pam.services.sddm.enableKwallet = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
