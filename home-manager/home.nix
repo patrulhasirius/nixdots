@@ -74,6 +74,7 @@
     pkgs.keepassxc
     pkgs.nil
     pkgs.discord
+    pkgs.htop
   ];
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

@@ -63,6 +63,13 @@
           nixos-hardware.nixosModules.lenovo-thinkpad-t480
         ];
       };
+      lucas-pc = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          # > Our main nixos configuration file <
+          ./hosts/lucas-pc/configuration.nix
+        ];
+      };
     };
 
   };
