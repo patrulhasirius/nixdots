@@ -48,14 +48,17 @@
 
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager = {
-    sddm.enable = true;
-    defaultSession = "cosmic";
-  };
-  services.desktopManager.plasma6.enable = true;
 
-  services.desktopManager.cosmic.enable = true;
-  services.fprintd.enable = true;
+  services = {
+    displayManager = {
+      sddm.enable = true;
+      defaultSession = "cosmic";
+    };
+    desktopManager.plasma6.enable = true;
+    desktopManager.cosmic.enable = true;
+    fprintd.enable = true;
+    locate.enable = true;
+  };
 
 
 

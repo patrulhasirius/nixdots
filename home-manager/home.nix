@@ -73,6 +73,7 @@
     pkgs.gamemode
     pkgs.keepassxc
     pkgs.nil
+    pkgs.discord
   ];
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
