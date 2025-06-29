@@ -11,7 +11,7 @@
       inputs.home-manager.nixosModules.home-manager
     ];
 
-  # Bootloader.
+  boot.kernel.sysctl."vm.max_map_count" = 2147483642;
 
    home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };

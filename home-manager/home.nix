@@ -20,6 +20,7 @@
     # ./nvim.nix
     ./alacritty.nix
     ./helix.nix
+    ./gh.nix
   ];
 
   nixpkgs = {

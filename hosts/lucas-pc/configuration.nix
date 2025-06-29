@@ -13,6 +13,13 @@
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.windows = {
+    "11-home" = {
+      title = "Windows 11";
+      efiDeviceHandle = "HD0d65535a4";
+      sortKey = "z_windows";
+    };
+  };
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.
@@ -40,6 +47,10 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+
+  services.xserver.xkb = {
+    layout = "br";
+  };
 
   # List services that you want to enable:
 
