@@ -58,6 +58,12 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
   services.ratbagd.enable = true;
+    services.sunshine = {
+    enable = true;
+    #autoStart = true;
+    capSysAdmin = true;
+    openFirewall = true;
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
