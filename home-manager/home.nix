@@ -21,6 +21,8 @@
     ./alacritty.nix
     ./helix.nix
     ./gh.nix
+    ./starship.nix
+    ./nushell.nix
   ];
 
   nixpkgs = {
