@@ -23,6 +23,7 @@
     ./gh.nix
     ./starship.nix
     ./nushell.nix
+    ./zoxide.nix
   ];
 
   nixpkgs = {
@@ -80,6 +81,7 @@
     pkgs.discord
     pkgs.htop
     pkgs.qdirstat
+    pkgs.zoxide
   ];
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
