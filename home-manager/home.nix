@@ -82,6 +82,7 @@
     pkgs.htop
     pkgs.qdirstat
     pkgs.zoxide
+    pkgs.libreoffice-fresh
   ];
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
