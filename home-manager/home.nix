@@ -24,6 +24,7 @@
     ./starship.nix
     ./nushell.nix
     ./zoxide.nix
+    ./obs.nix
   ];
 
   nixpkgs = {
@@ -83,6 +84,7 @@
     pkgs.qdirstat
     pkgs.zoxide
     pkgs.libreoffice-fresh
+    pkgs.ffmpeg
   ];
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
