@@ -22,9 +22,10 @@
     ./helix.nix
     ./gh.nix
     ./starship.nix
-    ./nushell.nix
+    ./fish.nix
     ./zoxide.nix
     ./obs.nix
+    ./fzf.nix
   ];
 
   nixpkgs = {
@@ -71,6 +72,7 @@
         userEmail = "patruop@gmail.com";
       };
     neovim.enable = true;
+    yazi.enable = true;
   };
 
   home.packages = [
@@ -87,6 +89,13 @@
     pkgs.ffmpeg
     pkgs.zotero
     pkgs.uutils-coreutils-noprefix
+    pkgs.ripgrep
+    pkgs.fd
+    pkgs.bat
+    pkgs.eza
+    pkgs.gitui
+    pkgs.dust
+    pkgs.dua
   ];
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
