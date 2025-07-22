@@ -86,6 +86,7 @@
     pkgs.libreoffice-fresh
     pkgs.ffmpeg
     pkgs.zotero
+    pkgs.uutils-coreutils-noprefix
   ];
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
