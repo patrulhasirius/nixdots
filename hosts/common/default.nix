@@ -121,6 +121,22 @@
   environment.systemPackages = with pkgs; [
   ];
 
+  fonts = {
+  enableDefaultPackages = true;
+  packages = [ 
+    pkgs.jetbrains-mono
+  ];
+
+  fontconfig = {
+    defaultFonts = {
+      #serif = [  "Liberation Serif" ];
+      #sansSerif = [ "Ubuntu" ];
+      monospace = [ "Jetbrains Mono" ];
+    };
+  };
+};
+
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
