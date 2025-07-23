@@ -12,7 +12,7 @@
       grep = "rg";
       find = "fd";
       cat = "bat";
-      ls = "eza";
+      ls = "eza --icons --group-directories-first";
     };
   };
   programs.bash = {
