@@ -96,6 +96,8 @@
     pkgs.gitui
     pkgs.dust
     pkgs.dua
+    pkgs.fselect
+    pkgs.wiki-tui
   ];
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
