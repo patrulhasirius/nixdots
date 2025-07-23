@@ -13,6 +13,7 @@
       find = "fd";
       cat = "bat";
       ls = "eza --icons --group-directories-first";
+      dua = "dua i";
     };
   };
   programs.bash = {
