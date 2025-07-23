@@ -18,7 +18,7 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
-    ./alacritty.nix
+    ./kitty.nix
     ./helix.nix
     ./gh.nix
     ./starship.nix
