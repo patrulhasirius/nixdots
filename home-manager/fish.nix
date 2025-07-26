@@ -7,6 +7,7 @@
     enable = true;
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
+      fish_add_path ~/.local/bin
     '';
     shellAliases = {
       grep = "rg";
@@ -15,6 +16,7 @@
       ls = "eza --icons --group-directories-first";
       dua = "dua i";
     };
+    
   };
   programs.bash = {
     enable = true;
