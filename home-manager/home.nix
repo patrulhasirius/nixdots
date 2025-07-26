@@ -26,6 +26,7 @@
     ./zoxide.nix
     ./obs.nix
     ./fzf.nix
+    ./google-drive.nix
   ];
 
   nixpkgs = {
