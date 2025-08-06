@@ -99,6 +99,7 @@
     pkgs.dua
     pkgs.fselect
     pkgs.wiki-tui
+    pkgs.signal-desktop
   ];
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
