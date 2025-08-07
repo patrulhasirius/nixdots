@@ -124,7 +124,7 @@
   fonts = {
   enableDefaultPackages = true;
   packages = [ 
-    pkgs.jetbrains-mono
+    pkgs.nerd-fonts.jetbrains-mono
   ];
 
   fontconfig = {
