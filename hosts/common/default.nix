@@ -58,6 +58,7 @@
     desktopManager.cosmic.enable = true;
     fprintd.enable = true;
     locate.enable = true;
+    xserver.enable = true;
   };
 
 
