@@ -107,6 +107,7 @@
       enable = true;
       remotePlay.openFirewall = true;
     };
+    gamemode.enable = true;
   };
 
   # Allow unfree packages

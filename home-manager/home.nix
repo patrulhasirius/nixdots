@@ -79,7 +79,6 @@
   home.packages = [
     pkgs.resources
     pkgs.vscode
-    pkgs.gamemode
     pkgs.keepassxc
     pkgs.nil
     pkgs.discord
@@ -100,6 +99,9 @@
     pkgs.fselect
     pkgs.wiki-tui
     pkgs.signal-desktop
+    pkgs.appimage-run
+    pkgs.wowup-cf
+    pkgs.qbittorrent
   ];
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

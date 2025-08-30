@@ -53,6 +53,9 @@
     layout = "br";
   };
 
+  services.jackett.enable = true;
+  services.flaresolverr.enable = true;
+
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
