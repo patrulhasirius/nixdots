@@ -35,7 +35,7 @@
       layout = "br";
       variant = "thinkpad";
     };
-    services.fprintd.enable = true;
+    fprintd.enable = true;
   };
 
   # Configure console keymap
