@@ -28,12 +28,14 @@
 
 
 
-  services.fprintd.enable = true;
 
   # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "br";
-    variant = "thinkpad";
+  services ={
+    xserver.xkb = {
+      layout = "br";
+      variant = "thinkpad";
+    };
+    services.fprintd.enable = true;
   };
 
   # Configure console keymap

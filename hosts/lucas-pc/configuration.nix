@@ -49,23 +49,25 @@
   #   enableSSHSupport = true;
   # };
 
-  services.xserver.xkb = {
-    layout = "br";
-  };
 
-  services.jackett.enable = true;
-  services.flaresolverr.enable = true;
 
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-  services.ratbagd.enable = true;
-    services.sunshine = {
-    enable = true;
-    autoStart = false;
-    capSysAdmin = true;
-    openFirewall = true;
+  services = {
+    ratbagd.enable = true;
+    sunshine = {
+      enable = true;
+      autoStart = false;
+      capSysAdmin = true;
+      openFirewall = true;
+    };
+    xserver.xkb = {
+      layout = "br";
+    };
+    jackett.enable = true;
+    flaresolverr.enable = true;
   };
 
   # Open ports in the firewall.
