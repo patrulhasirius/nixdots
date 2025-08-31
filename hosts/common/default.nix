@@ -153,6 +153,8 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
+  networking.nameservers = ["1.1.1.1" "1.0.0.1" "9.9.9.9"];
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
