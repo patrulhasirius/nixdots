@@ -68,6 +68,7 @@
     };
     jackett.enable = true;
     flaresolverr.enable = true;
+    displayManager.defaultSession = "plasma";
   };
 
   # Open ports in the firewall.

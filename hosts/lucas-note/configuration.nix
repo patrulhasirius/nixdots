@@ -36,6 +36,7 @@
       variant = "thinkpad";
     };
     fprintd.enable = true;
+    displayManager.defaultSession = "cosmic";
   };
 
   # Configure console keymap

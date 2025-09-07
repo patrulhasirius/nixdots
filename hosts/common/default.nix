@@ -52,7 +52,6 @@
   services = {
     displayManager = {
       sddm.enable = true;
-      defaultSession = "cosmic";
     };
     desktopManager.plasma6.enable = true;
     desktopManager.cosmic.enable = true;
