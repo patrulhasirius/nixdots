@@ -69,8 +69,10 @@
     home-manager.enable = true;
     git = {
         enable = true;
-        userName  = "Lucas Ribeiro";
-        userEmail = "patruop@gmail.com";
+        settings = {
+          user.name  = "Lucas Ribeiro";
+          user.email = "patruop@gmail.com";
+        };
       };
     neovim.enable = true;
     yazi.enable = true;
@@ -102,6 +104,8 @@
     pkgs.appimage-run
     pkgs.wowup-cf
     pkgs.qbittorrent
+    pkgs.lutris
+    pkgs.protonup-qt
   ];
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
