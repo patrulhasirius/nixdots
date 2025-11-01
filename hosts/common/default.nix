@@ -51,7 +51,7 @@
 
   services = {
     displayManager = {
-      sddm.enable = true;
+      sddm.wayland.enable = true;
     };
     desktopManager.plasma6.enable = true;
     desktopManager.cosmic.enable = true;
