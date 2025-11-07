@@ -104,7 +104,6 @@
     pkgs.appimage-run
     pkgs.wowup-cf
     pkgs.qbittorrent
-    pkgs.lutris
     pkgs.protonup-qt
   ];
   # Nicely reload system units when changing configs
