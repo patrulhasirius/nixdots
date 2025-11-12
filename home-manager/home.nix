@@ -105,6 +105,9 @@
     pkgs.wowup-cf
     pkgs.qbittorrent
     pkgs.protonup-qt
+    pkgs.proton-pass
+    pkgs.proton-authenticator
+    pkgs.czkawka-full
   ];
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
