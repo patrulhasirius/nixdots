@@ -49,16 +49,25 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-  systemd.user.services.raid = {
-    description = "...";
-    script = ''
-      #!/usr/bin/env bash
+  #systemd.services.raid = {
+  #  description = "...";
+  #  script = ''
+  #    #!/usr/bin/env bash
 
-      sudo cryptsetup luksOpen /dev/disk/by-uuid/8b0dc62d-4ee6-4713-815a-137c1dbe0729 raid3 --key-file ~/keyfiles/btrfs-8b0d.keyfile
-      sudo cryptsetup luksOpen /dev/disk/by-uuid/5e8e19cc-3cf6-4eba-8be8-b09ca9c8d494 raid2 --key-file ~/keyfiles/btrfs-5e8e.keyfile
-      sudo cryptsetup luksOpen /dev/disk/by-uuid/5b0f3855-837b-4653-977d-5254b4d6ce0c raid1 --key-file ~/keyfiles/btrfs-5b0f.keyfile
+  #    cryptsetup luksOpen /dev/disk/by-uuid/8b0dc62d-4ee6-4713-815a-137c1dbe0729 raid3 --key-file ~/keyfiles/btrfs-8b0d.keyfile
+  #    cryptsetup luksOpen /dev/disk/by-uuid/5e8e19cc-3cf6-4eba-8be8-b09ca9c8d494 raid2 --key-file ~/keyfiles/btrfs-5e8e.keyfile
+  #    cryptsetup luksOpen /dev/disk/by-uuid/5b0f3855-837b-4653-977d-5254b4d6ce0c raid1 --key-file ~/keyfiles/btrfs-5b0f.keyfile
+  #  '';
+  #};
+
+  environment.etc.crypttab = {
+    mode = "0600";
+    text = ''
+      # <volume-name> <encrypted-device> [key-file] [options]
+      raid1 UUID=5b0f3855-837b-4653-977d-5254b4d6ce0c /root/btrfs-5b0f.keyfile
+      raid2 UUID=5e8e19cc-3cf6-4eba-8be8-b09ca9c8d494 /root/btrfs-5e8e.keyfile
+      raid3 UUID=8b0dc62d-4ee6-4713-815a-137c1dbe0729 /root/btrfs-8b0d.keyfile
     '';
-    wantedBy = [ "multi-user.target" ]; # starts after login
   };
   services = {
     ratbagd.enable = true;
