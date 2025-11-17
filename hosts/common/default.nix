@@ -69,7 +69,6 @@
       # no need to redefine it in your config for now)
       #media-session.enable = true;
     };
-    pulseaudio.enable = false;
     printing.enable = true;
     # Enable automatic login for the user.
     displayManager.autoLogin.enable = true;
