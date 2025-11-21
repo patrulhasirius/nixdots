@@ -12,6 +12,9 @@
     ];
 
   boot.kernel.sysctl."vm.max_map_count" = 2147483642;
+  boot.kernelParams = ["preempt=full"];
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
 
    home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
@@ -64,6 +67,14 @@
       pulse.enable = true;
       # If you want to use JACK applications, uncomment this
       #jack.enable = true;
+      extraConfig.pipewire."92-low-latency" = {
+        "context.properties" = {
+          "default.clock.rate" = 48000;
+          "default.clock.quantum" = 64;
+          "default.clock.min-quantum" = 64;
+          "default.clock.max-quantum" = 64;
+        };
+      };
 
       # use the example session manager (no others are packaged yet so this is enabled by default,
       # no need to redefine it in your config for now)
@@ -105,6 +116,7 @@
     steam = {
       enable = true;
       remotePlay.openFirewall = true;
+      localNetworkGameTransfers.openFirewall = true;
       extraCompatPackages = [pkgs.proton-ge-bin];
     };
     gamemode.enable = true;
