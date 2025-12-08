@@ -93,7 +93,6 @@
     fprintd.enable = true;
     locate.enable = true;
     xserver.enable = true;
-    preload.enable = true;
   };
 
 
