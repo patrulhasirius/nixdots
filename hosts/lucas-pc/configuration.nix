@@ -67,6 +67,7 @@
     '';
   };
   services = {
+    fstrim.enable = true;
     ratbagd.enable = true;
     sunshine = {
       enable = true;

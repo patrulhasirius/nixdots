@@ -4,10 +4,16 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nix-stable.url = "github:nixos/nixpkgs/nixos-25.11";
     # You can access packages and modules from different nixpkgs revs
     # at the same time. Here's an working example:
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v1.0.0";
+
+      # Optional but recommended to limit the size of your system closure.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
@@ -20,6 +26,7 @@
     nixpkgs,
     home-manager,
     nixos-hardware,
+    lanzaboote,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -54,13 +61,13 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      # FIXME replace with your hostname
       lucas-note = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main nixos configuration file <
           ./hosts/lucas-note/configuration.nix
           nixos-hardware.nixosModules.lenovo-thinkpad-t480
+          lanzaboote.nixosModules.lanzaboote
         ];
       };
       lucas-pc = nixpkgs.lib.nixosSystem {

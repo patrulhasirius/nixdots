@@ -80,6 +80,10 @@
       # no need to redefine it in your config for now)
       #media-session.enable = true;
     };
+    scx = {
+      enable = true;
+      scheduler = "scx_lavd";
+    };
     printing.enable = true;
     # Enable automatic login for the user.
     displayManager.autoLogin.enable = true;
