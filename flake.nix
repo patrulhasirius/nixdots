@@ -75,6 +75,7 @@
         modules = [
           # > Our main nixos configuration file <
           ./hosts/lucas-pc/configuration.nix
+          lanzaboote.nixosModules.lanzaboote
         ];
       };
     };
