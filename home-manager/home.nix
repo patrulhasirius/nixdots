@@ -108,6 +108,7 @@
     pkgs.proton-pass
     pkgs.proton-authenticator
     pkgs.czkawka-full
+    pkgs.protonmail-desktop
   ];
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
