@@ -72,6 +72,10 @@
       raid3 UUID=8b0dc62d-4ee6-4713-815a-137c1dbe0729 /root/btrfs-8b0d.keyfile
     '';
   };
+  environment.variables = {
+    #kde wow lag bug https://bugs.kde.org/show_bug.cgi?id=511793
+    KWIN_DRM_NO_DIRECT_SCANOUT = 1;
+  };
   services = {
     fstrim.enable = true;
     ratbagd.enable = true;
