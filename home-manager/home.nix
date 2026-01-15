@@ -71,11 +71,18 @@
         enable = true;
         settings = {
           user.name  = "Lucas Ribeiro";
-          user.email = "patruop@gmail.com";
+          user.email = "lnribeiro51@pm.me";
+          init.defaultBranch = "main";
         };
       };
     neovim.enable = true;
     yazi.enable = true;
+    direnv = {
+      enable = true;
+      enableBashIntegration = true;
+      enableFishIntegration = true;
+      nix-direnv.enable = true;
+    };
   };
 
   home.packages = [
