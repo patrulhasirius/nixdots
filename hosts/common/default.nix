@@ -26,6 +26,16 @@
 
   nix.settings = {
     experimental-features = "nix-command flakes";
+    trusted-users = ["root" "lucas"];
+    substituters = [
+      "https://nix-gaming.cachix.org"
+      "https://crane.cachix.org"
+      ];
+    trusted-public-keys = [
+      "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
+      "crane.cachix.org-1:8Scfpmn9w+hGdXH/Q9tTLiYAE/2dnJYRJP7kl80GuRk=" 
+      ];
+
   };
 
   # Enable networking
@@ -132,6 +142,11 @@
   environment.shells = [
     pkgs.bashInteractive
   ];
+  environment.etc."direnv/direnv.toml".text = ''
+    [global]
+    hide_env_diff = true
+  '';
+
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
