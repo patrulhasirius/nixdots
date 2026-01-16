@@ -70,6 +70,7 @@
   security.rtkit.enable = true;
   security.pam.services.sddm.enableKwallet = true;
   services = {
+    fstrim.enable = true;
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -142,10 +143,6 @@
   environment.shells = [
     pkgs.bashInteractive
   ];
-  environment.etc."direnv/direnv.toml".text = ''
-    [global]
-    hide_env_diff = true
-  '';
 
 
   # List packages installed in system profile. To search, run:
