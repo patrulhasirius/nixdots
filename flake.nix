@@ -19,6 +19,9 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    # flatpak
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
   };
 
   outputs = {
@@ -27,6 +30,7 @@
     home-manager,
     nixos-hardware,
     lanzaboote,
+    nix-flatpak,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -68,6 +72,7 @@
           ./hosts/lucas-note/configuration.nix
           nixos-hardware.nixosModules.lenovo-thinkpad-t480
           lanzaboote.nixosModules.lanzaboote
+          nix-flatpak.nixosModules.nix-flatpak
         ];
       };
       lucas-pc = nixpkgs.lib.nixosSystem {
@@ -76,6 +81,7 @@
           # > Our main nixos configuration file <
           ./hosts/lucas-pc/configuration.nix
           lanzaboote.nixosModules.lanzaboote
+          nix-flatpak.nixosModules.nix-flatpak
         ];
       };
     };

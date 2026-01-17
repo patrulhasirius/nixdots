@@ -99,7 +99,16 @@
     # Enable automatic login for the user.
     displayManager.autoLogin.enable = true;
     displayManager.autoLogin.user = "lucas";
-    flatpak.enable = true;
+    flatpak = {
+      enable = true;
+      uninstallUnmanaged = true;
+      packages = [
+        "net.lutris.Lutris"
+        "io.github.radiolamp.mangojuice"
+        "org.indii.mendingwall"
+        "org.onlyoffice.desktopeditors"
+      ];
+    };
     displayManager = {
       sddm.wayland.enable = true;
     };
