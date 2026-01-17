@@ -95,7 +95,6 @@
     pkgs.htop
     pkgs.qdirstat
     pkgs.zoxide
-    pkgs.libreoffice-fresh
     pkgs.ffmpeg
     pkgs.zotero
     pkgs.uutils-coreutils-noprefix
