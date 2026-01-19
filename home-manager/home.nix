@@ -27,6 +27,7 @@
     ./obs.nix
     ./fzf.nix
     ./google-drive.nix
+    ./vscode.nix
   ];
 
   nixpkgs = {
@@ -88,7 +89,6 @@
 
   home.packages = [
     pkgs.resources
-    pkgs.vscode
     pkgs.keepassxc
     pkgs.nil
     pkgs.discord
