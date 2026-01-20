@@ -38,7 +38,6 @@
       layout = "br";
       variant = "thinkpad";
     };
-    fprintd.enable = true;
     displayManager.defaultSession = "cosmic";
   };
 
@@ -51,6 +50,41 @@
   environment.systemPackages = with pkgs; [
     sbctl
   ];
+
+   # ---------------------------------------------------------------------------
+  # Biometric Services Configuration
+  # ---------------------------------------------------------------------------
+
+  # 1. Disable the standard fprintd service to prevent conflicts.
+  # The open-fprintd module might implicitly conflict with it, but explicit 
+  # disabling is safer for declarative configurations.
+  services.fprintd.enable = false;
+
+  # 2. Enable the Open-Fprintd Daemon
+  # This daemon speaks the D-Bus protocol expected by GNOME/GDM/PAM.
+  services.open-fprintd.enable = true;
+
+  # 3. Enable the Python-Validity Driver
+  # This service handles the USB communication and firmware upload.
+  services.python-validity.enable = true;
+
+  # 4. Service Ordering (Optional but Recommended)
+  # Ensure python-validity is up before open-fprintd tries to query it.
+  # The module likely handles this, but explicit ordering can fix race conditions.
+  systemd.services.open-fprintd.after = [ "python3-validity.service" ];
+
+  # ---------------------------------------------------------------------------
+  # Authentication Stack (PAM) Integration
+  # ---------------------------------------------------------------------------
+  
+  # Enabling the service runs the daemon, but doesn't tell the system to USE it 
+  # for logging in. We must configure PAM (Pluggable Authentication Modules).
+  
+  # For unlocking the screen (GDM/KDE/SwayLock)
+  security.pam.services.login.fprintAuth = true;
+  
+  # For sudo access
+  security.pam.services.sudo.fprintAuth = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

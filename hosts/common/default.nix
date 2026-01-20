@@ -114,7 +114,6 @@
     };
     desktopManager.plasma6.enable = true;
     desktopManager.cosmic.enable = true;
-    fprintd.enable = true;
     locate.enable = true;
     xserver.enable = true;
   };

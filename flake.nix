@@ -4,7 +4,9 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nix-stable.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs-stable-24-11.url = "github:nixos/nixpkgs/nixos-24.11";
+    
     # You can access packages and modules from different nixpkgs revs
     # at the same time. Here's an working example:
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
@@ -22,6 +24,12 @@
 
     # flatpak
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+
+    # Fingerprint sensor
+    nixos-06cb-009a-fingerprint-sensor = {
+      url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
+      inputs.nixpkgs.follows = "nixpkgs-stable-24-11";
+    };
   };
 
   outputs = {
@@ -31,6 +39,7 @@
     nixos-hardware,
     lanzaboote,
     nix-flatpak,
+    nixos-06cb-009a-fingerprint-sensor,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -73,6 +82,8 @@
           nixos-hardware.nixosModules.lenovo-thinkpad-t480
           lanzaboote.nixosModules.lanzaboote
           nix-flatpak.nixosModules.nix-flatpak
+          nixos-06cb-009a-fingerprint-sensor.nixosModules.open-fprintd
+          nixos-06cb-009a-fingerprint-sensor.nixosModules.python-validity
         ];
       };
       lucas-pc = nixpkgs.lib.nixosSystem {
