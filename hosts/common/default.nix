@@ -13,7 +13,7 @@
 
   boot.kernel.sysctl."vm.max_map_count" = 2147483642;
   boot.kernelParams = ["preempt=full"];
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  #boot.kernelPackages = pkgs.linuxPackages_zen;
   #boot.kernelPackages = pkgs.linuxPackages_latest;
 
    home-manager = {
