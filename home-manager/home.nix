@@ -65,6 +65,17 @@
   # home.packages = with pkgs; [ steam ];
 
   # Enable home-manager and git
+  xdg.desktopEntries = {
+  signal = {
+    name = "Signal";
+    exec = "signal-desktop --password-store=\"gnome-libsecret\" %U";
+    terminal = false;
+    comment = "Private messaging from your desktop";
+    icon = "signal-desktop";
+    categories = [ "Network"];
+    #mimeType = [ "text/html" "text/xml" ];
+    };
+  };
 
   programs = {
     home-manager.enable = true;
@@ -85,6 +96,7 @@
       nix-direnv.enable = true;
       config.global.hide_env_diff = true;
     };
+    #thunderbird.enable = true;
   };
 
   home.packages = [
@@ -115,7 +127,9 @@
     pkgs.proton-pass
     pkgs.proton-authenticator
     pkgs.czkawka-full
-    pkgs.protonmail-desktop
+    pkgs.thunderbird
+    pkgs.protonmail-bridge-gui
+    pkgs.signal-desktop
   ];
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

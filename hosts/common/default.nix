@@ -68,9 +68,11 @@
 
   # Enable sound with pipewire.
   security.rtkit.enable = true;
-  security.pam.services.sddm.enableKwallet = true;
+  #security.pam.services.sddm.enableKwallet = true;
+  security.pam.services.lucas.enableGnomeKeyring = true;
   services = {
     fstrim.enable = true;
+    gnome.gnome-keyring.enable = true;
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -152,7 +154,6 @@
   environment.shells = [
     pkgs.bashInteractive
   ];
-
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
