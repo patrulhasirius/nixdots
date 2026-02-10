@@ -82,6 +82,7 @@
   
   # For unlocking the screen (GDM/KDE/SwayLock)
   security.pam.services.login.fprintAuth = true;
+  security.pam.services.sddm.fprintAuth = true;
   
   # For sudo access
   security.pam.services.sudo.fprintAuth = true;
